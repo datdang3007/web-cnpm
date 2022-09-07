@@ -1,0 +1,12 @@
+.container {
+  margin: 0 auto;
+  width: 1170px;
+}
+* {
+  font-family: "Berkshire Swash", cursive;
+}
+$headerTopUP: #ffffff;
+@import "header";
+@import "banner";
+//muốn element đè lên video thì phải thêm z-index và position vào thằng cha
+//VD:

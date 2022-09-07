@@ -1,0 +1,72 @@
+.container {
+  margin: 0 auto;
+  width: 1140px;
+}
+* {
+  font-family: "Poppins", sans-serif;
+}
+$headerTopUP: #ffffff;
+header {
+  .header-top {
+    .portion-upper {
+      background-color: #ab1e32;
+      padding: 15px 0;
+      .container {
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header-left {
+          .support {
+            color: $headerTopUP;
+          }
+        }
+        .header-right {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .cart {
+            position: relative;
+            color: $headerTopUP;
+            .cart-icon {
+              font-size: 20px;
+            }
+            .quantity {
+              position: absolute;
+              width: 18px;
+              height: 18px;
+              background-color: #ea1616;
+              font-size: 12px;
+              bottom: 70%;
+              left: 70%;
+              border-radius: 50%;
+              text-align: center;
+              line-height: 18px;
+            }
+          }
+          .info {
+            font-size: 14px;
+            padding: 5px 15px;
+            margin: 0 15px;
+            border-left: 1px $headerTopUP solid;
+            border-right: 1px $headerTopUP solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .facebook {
+              width: 24px;
+              height: 24px;
+              background-color: $headerTopUP;
+              border-radius: 50%;
+              text-align: center;
+              i {
+                line-height: 24px;
+                color: #ab1e32;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

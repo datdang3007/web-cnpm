@@ -1,0 +1,21 @@
+.container {
+  margin: 0 auto;
+  width: 1170px;
+}
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+}
+$headerTopUP: #ffffff;
+.body-overflow {
+  overflow: hidden;
+}
+@import "formLogin";
+@import "header";
+@import "banner";
+// @import "product";
+
+@import "scrollTop";
+//muốn element đè lên video thì phải thêm z-index và position vào thằng cha
+//VD:

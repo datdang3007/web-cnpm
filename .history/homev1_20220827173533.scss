@@ -1,0 +1,21 @@
+.container {
+  margin: 0 auto;
+  width: 1140px;
+}
+
+header {
+  .header-top {
+    .portion-upper {
+      background-color: #ab1e32;
+      padding: 15px 0;
+      .container {
+        padding: 15px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .header-left {
+        }
+      }
+    }
+  }
+}

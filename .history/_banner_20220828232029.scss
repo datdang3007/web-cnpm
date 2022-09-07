@@ -1,0 +1,166 @@
+.background-banner {
+  video {
+    position: fixed;
+    z-index: -1;
+    width: 100vw;
+    top: 0;
+    height: flex;
+    z-index: 0;
+  }
+}
+.banner {
+  padding-top: 116px;
+  position: relative;
+  z-index: 10;
+  .banner-upper {
+    padding: 100px 0 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .logo-banner {
+      margin-bottom: 50px;
+    }
+    .decor-banner {
+      transform: translateX(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .barley-left {
+        margin-right: 30px;
+        transform: translateX(-10px);
+        img {
+          transform: matrix3d(
+            0.98,
+            0.2,
+            0,
+            0,
+            -0.2,
+            0.98,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          );
+          transform-origin: 0% 100% 0px;
+          animation: barley-left 2.5s infinite alternate ease-out;
+        }
+      }
+      .barley-right {
+        img {
+          transform: matrix3d(
+            0.96,
+            -0.2,
+            0,
+            0,
+            0.2,
+            0.96,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          );
+          transform-origin: 0% 100% 0px;
+          animation: barley-left 2.5s infinite alternate ease-out;
+        }
+      }
+      .caption {
+        text-align: center;
+        h3 {
+          font-size: 28px;
+          font-weight: 100;
+          color: #ffffff;
+          transform: translateX(-20px);
+        }
+      }
+    }
+  }
+  .banner-below {
+    background-color: #ffffff;
+    padding-top: 50px;
+    .wellcome {
+      margin: 50px 10px;
+      p {
+        font-size: 24px;
+        font-weight: 400;
+        color: #666666;
+      }
+      h2 {
+        font-size: 60px;
+        font-weight: 100;
+        color: #666666;
+        margin-top: 20px;
+      }
+    }
+    .wrapper-banner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      &.action-banner-2 {
+      }
+      .wrapper-fruit {
+        max-height: 800px;
+        position: relative;
+        box-shadow: 10px 10px 58px -34px rgba(0, 0, 0, 0.75);
+        max-width: 370px;
+        background-color: #f7f6f2;
+        margin: 0 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .icon-fruit {
+          margin: 40px 0 20px;
+          width: 70px;
+          height: 70px;
+        }
+        .categories {
+          text-align: center;
+          h3 {
+            font-family: "Berkshire Swash", cursive;
+            font-size: 50px;
+            font-weight: 400;
+            color: #222222;
+          }
+        }
+        .fruit-content {
+          margin: 40px 0 60px;
+          p {
+            font-size: 13px;
+            color: #666666;
+          }
+        }
+        .illustration {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          flex: 1;
+          height: 100%;
+          width: 100%;
+          position: relative;
+          bottom: 0;
+          left: 0;
+          img {
+            width: 100%;
+            position: absolute;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes barley-left {
+  to {
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+}

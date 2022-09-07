@@ -1,0 +1,14 @@
+.container {
+  margin: 0 auto;
+  width: 1170px;
+}
+* {
+  font-family: "Poppins", sans-serif;
+}
+$headerTopUP: #ffffff;
+.test {
+  width: 100%;
+  height: 1000px;
+}
+@import "header";
+@import "banner";

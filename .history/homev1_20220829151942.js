@@ -1,0 +1,32 @@
+$(document).ready(function () {
+  const leftContent = $(".active-nav-main").offset().left;
+  $(".shop-down").offset({ left: leftContent });
+
+  //-------sự kiện scroll---------
+  const heightWin = $(window).height();
+  console.log("heightWin:", heightWin);
+  //icon home
+  const iconHome = $(".link-icon-home");
+  //banner below
+  const bannerBelow1 = $(".action-banner-1");
+  const bannerBelow2 = $(".action-banner-2");
+  const bannerBelow3 = $(".action-banner-3");
+  const topBannerBelow = $(".wellcome p").offset().top;
+  $(window).scroll(function () {
+    let top = $("html, body").scrollTop();
+    //scroll icon home
+    if (top > 10) {
+      iconHome.css({
+        transform: "scale(0.7) translateY(-30px)",
+      });
+    } else {
+      iconHome.css({
+        transform: "scale(1) translateY(0)",
+      });
+    }
+    //scroll animation banner below
+    if (top + heightWin >= topBannerBelow) {
+      console.log("con cac");
+    }
+  });
+});

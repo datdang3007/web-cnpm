@@ -1,0 +1,17 @@
+.container {
+  margin: 0 auto;
+  width: 1140px;
+}
+
+header {
+  .header-top {
+    .container {
+      .portion-upper {
+        background-color: #ab1e32;
+        padding: 15px 0;
+        .header-left {
+        }
+      }
+    }
+  }
+}

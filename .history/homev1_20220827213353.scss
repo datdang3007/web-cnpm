@@ -1,0 +1,236 @@
+.container {
+  margin: 0 auto;
+  width: 1170px;
+}
+* {
+  font-family: "Poppins", sans-serif;
+}
+$headerTopUP: #ffffff;
+header {
+  .header-top {
+    .portion-upper {
+      background-color: #ab1e32;
+      padding: 15px 0;
+      .container {
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header-left {
+          .support {
+            color: $headerTopUP;
+            font-size: 14px;
+          }
+        }
+        .header-right {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .cart {
+            cursor: pointer;
+            position: relative;
+            color: $headerTopUP;
+            .cart-icon {
+              font-size: 24px;
+            }
+            .quantity {
+              position: absolute;
+              width: 18px;
+              height: 18px;
+              background-color: #ea1616;
+              font-size: 12px;
+              bottom: 70%;
+              left: 70%;
+              border-radius: 50%;
+              text-align: center;
+              line-height: 18px;
+            }
+          }
+          .info {
+            font-size: 14px;
+            padding: 3px 15px;
+            margin: 0 25px;
+            border-left: 1px $headerTopUP solid;
+            border-right: 1px $headerTopUP solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .icon-info {
+              width: 27px;
+              height: 27px;
+              cursor: pointer;
+              background-color: $headerTopUP;
+              border-radius: 50%;
+              text-align: center;
+              i {
+                line-height: 27px;
+                color: #ab1e32;
+                transition: 0.3s;
+              }
+            }
+            .facebook {
+              margin-right: 15px;
+              transition: 0.3s;
+              &:hover {
+                background-color: #3b5998;
+                i {
+                  color: $headerTopUP;
+                }
+              }
+            }
+            .twitter {
+              transition: 0.3s;
+              &:hover {
+                background-color: #55acee;
+                i {
+                  color: $headerTopUP;
+                }
+              }
+            }
+          }
+          .search {
+            font-size: 24px;
+            cursor: pointer;
+            color: $headerTopUP;
+          }
+        }
+      }
+    }
+    .portion-below {
+      .container {
+        padding: 5px 15px;
+        position: relative;
+        .shop-down {
+          position: absolute;
+          opacity: 0;
+          border: 1px rgba(#666666, 0.2) solid;
+          width: 1170px;
+          display: grid;
+          grid-template-columns: 25% 37.5% 37.5%;
+          .product-categories {
+            border-right: 1px rgba(#666666, 0.2) solid;
+            h2 {
+              width: 100%;
+              font-size: 16px;
+              font-weight: 700;
+              padding: 30px 30px;
+              white-space: nowrap;
+              color: #666666;
+              border-bottom: 1px #666666 solid;
+            }
+            ul {
+              li {
+                width: 100%;
+                a {
+                  width: 100%;
+                  border-top: 1px rgba(#666666, 0.3) solid;
+                  display: inline-block;
+                  font-size: 14px;
+                  color: #666666;
+                  padding: 15px 20px;
+                  transition: 0.2s;
+                  &:hover {
+                    background-color: #3a3939;
+                    color: $headerTopUP;
+                  }
+                }
+              }
+            }
+          }
+          article {
+            padding: 0 10px;
+            .featured-post {
+              display: inline-block;
+              font-size: 16px;
+              font-weight: 700;
+              color: #666666;
+              padding: 0 0 5px;
+              border-bottom: 1px #ab1e32 solid;
+              margin: 15px 0;
+            }
+            img {
+              width: 100%;
+              object-fit: cover;
+            }
+            h3 {
+              color: #222222;
+              margin: 15px 0;
+              font-size: 18px;
+            }
+            .content {
+              color: #666666;
+              font-size: 14px;
+            }
+          }
+          .recent-posts {
+            padding: 0 10px;
+            border-left: 1px rgba(#666666, 0.2) solid;
+            h2 {
+              display: inline-block;
+              font-size: 16px;
+              font-weight: 700;
+              color: #666666;
+              margin: 15px 0 5px;
+              padding: 0 0 5px;
+              border-bottom: 1px #ea1616 solid;
+            }
+            ul {
+              li {
+                padding: 8px 0;
+                display: flex;
+                border-bottom: 1px rgba(#666666, 0.2) solid;
+                &:last-child {
+                  border: none;
+                }
+                img {
+                  width: 77px;
+                  object-fit: cover;
+                  margin-right: 10px;
+                  cursor: pointer;
+                }
+                .title-post {
+                  cursor: pointer;
+                  .title {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #222222;
+                  }
+                  .day-post {
+                    margin-top: 10px;
+                    font-size: 14px;
+                    color: #666666;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .wrapper-header-below {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .header-right {
+            .wrapper-nav-main {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              .nav-main {
+                padding: 25px 10px;
+                .nav-link-main {
+                  &:hover {
+                    color: #ea1616;
+                  }
+                  font-size: 14px;
+                  color: #222222;
+                  i {
+                    font-size: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+.container {
+  margin: 0 auto;
+  width: 1170px;
+}
+* {
+  font-family: "Poppins", sans-serif;
+}
+$headerTopUP: #ffffff;
+.action-scroll {
+  z-index: 9999;
+  position: relative;
+  .btn-to-top {
+    box-shadow: rgba(149, 157, 165, 0.5) 0px 8px 24px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    text-align: center;
+    .scroll-top {
+      i {
+        line-height: 50px;
+        color: #666666;
+        font-size: 24px;
+      }
+    }
+  }
+  .action-show {
+    animation: scrollShow 0.5s linear 2s forwards,
+      scrollHide 0.5s linear 4s forwards;
+  }
+  // .action-hide {
+  //   animation: scrollHide 0.5s linear 4s forwards;
+  // }
+}
+@import "header";
+@import "banner";
+@keyframes scrollShow {
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0);
+  }
+}
+@keyframes scrollHide {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(40px);
+  }
+}
+//muốn element đè lên video thì phải thêm z-index và position vào thằng cha
+//VD:

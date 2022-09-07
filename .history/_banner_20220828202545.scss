@@ -1,0 +1,111 @@
+.background-banner {
+  video {
+    position: fixed;
+    z-index: -1;
+    width: 100vw;
+    top: 0;
+    height: flex;
+    z-index: 0;
+  }
+}
+.banner {
+  padding-top: 116px;
+  position: relative;
+  z-index: 10;
+  .banner-upper {
+    padding: 100px 0 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .logo-banner {
+      margin-bottom: 50px;
+    }
+    .decor-banner {
+      transform: translateX(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .barley-left {
+        margin-right: 30px;
+        transform: translateX(-10px);
+        img {
+          transform: matrix3d(
+            0.98,
+            0.2,
+            0,
+            0,
+            -0.2,
+            0.98,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          );
+          transform-origin: 0% 100% 0px;
+          animation: barley-left 2.5s infinite alternate ease-out;
+        }
+      }
+      .barley-right {
+        img {
+          transform: matrix3d(
+            0.96,
+            -0.2,
+            0,
+            0,
+            0.2,
+            0.96,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          );
+          transform-origin: 0% 100% 0px;
+          animation: barley-left 2.5s infinite alternate ease-out;
+        }
+      }
+      .caption {
+        text-align: center;
+        h3 {
+          font-size: 28px;
+          font-weight: 100;
+          color: #ffffff;
+          transform: translateX(-20px);
+        }
+      }
+    }
+  }
+  .banner-below {
+    background-color: #ffffff;
+    .container {
+      .wrapper-banner {
+        .icon-fuit {
+          img {
+          }
+        }
+        .categories {
+          h3 {
+            font-family: "Roboto", sans-serif;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes barley-left {
+  to {
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+}

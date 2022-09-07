@@ -1,0 +1,129 @@
+.container {
+  margin: 0 auto;
+  width: 1170px;
+}
+* {
+  font-family: "Poppins", sans-serif;
+}
+@import "/grid";
+$headerTopUP: #ffffff;
+header {
+  .header-top {
+    .portion-upper {
+      background-color: #ab1e32;
+      padding: 15px 0;
+      .container {
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header-left {
+          .support {
+            color: $headerTopUP;
+            font-size: 14px;
+          }
+        }
+        .header-right {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .cart {
+            cursor: pointer;
+            position: relative;
+            color: $headerTopUP;
+            .cart-icon {
+              font-size: 24px;
+            }
+            .quantity {
+              position: absolute;
+              width: 18px;
+              height: 18px;
+              background-color: #ea1616;
+              font-size: 12px;
+              bottom: 70%;
+              left: 70%;
+              border-radius: 50%;
+              text-align: center;
+              line-height: 18px;
+            }
+          }
+          .info {
+            font-size: 14px;
+            padding: 3px 15px;
+            margin: 0 25px;
+            border-left: 1px $headerTopUP solid;
+            border-right: 1px $headerTopUP solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .icon-info {
+              width: 27px;
+              height: 27px;
+              cursor: pointer;
+              background-color: $headerTopUP;
+              border-radius: 50%;
+              text-align: center;
+              i {
+                line-height: 27px;
+                color: #ab1e32;
+                transition: 0.3s;
+              }
+            }
+            .facebook {
+              margin-right: 15px;
+              transition: 0.3s;
+              &:hover {
+                background-color: #3b5998;
+                i {
+                  color: $headerTopUP;
+                }
+              }
+            }
+            .twitter {
+              transition: 0.3s;
+              &:hover {
+                background-color: #55acee;
+                i {
+                  color: $headerTopUP;
+                }
+              }
+            }
+          }
+          .search {
+            font-size: 24px;
+            cursor: pointer;
+            color: $headerTopUP;
+          }
+        }
+      }
+    }
+    .portion-below {
+      .container {
+        padding: 5px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header-right {
+          ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            li {
+              padding: 25px 10px;
+              a {
+                &:hover {
+                  color: #ea1616;
+                }
+                font-size: 14px;
+                color: #222222;
+                i {
+                  font-size: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
