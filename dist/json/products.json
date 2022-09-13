@@ -106,7 +106,7 @@
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/pumpkin.jpg",
       "category": "vegetables",
       "quantity": 1,
-      "menu": 2
+      "menu": 3
     },
     {
       "id": 13,
@@ -115,7 +115,7 @@
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/corn.jpg",
       "category": "vegetables",
       "quantity": 1,
-      "menu": 2
+      "menu": 3
     },
     {
       "id": 14,
@@ -151,7 +151,7 @@
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/grapes.jpg",
       "category": "fruits",
       "quantity": 1,
-      "menu": 3
+      "menu": 4
     },
     {
       "id": 18,
@@ -160,7 +160,7 @@
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/mango.jpg",
       "category": "fruits",
       "quantity": 1,
-      "menu": 3
+      "menu": 4
     },
     {
       "id": 19,
@@ -214,7 +214,7 @@
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/strawberry.jpg",
       "category": "fruits",
       "quantity": 1,
-      "menu": 4
+      "menu": 5
     },
     {
       "id": 25,
@@ -223,7 +223,7 @@
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/water-melon.jpg",
       "category": "fruits",
       "quantity": 1,
-      "menu": 4
+      "menu": 5
     },
     {
       "id": 26,
@@ -232,7 +232,7 @@
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/almonds.jpg",
       "category": "nuts",
       "quantity": 1,
-      "menu": 4
+      "menu": 5
     },
     {
       "id": 27,
@@ -241,7 +241,7 @@
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/pista.jpg",
       "category": "nuts",
       "quantity": 1,
-      "menu": 4
+      "menu": 5
     },
     {
       "id": 28,
@@ -250,7 +250,7 @@
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/nuts-mixture.jpg",
       "category": "nuts",
       "quantity": 1,
-      "menu": 4
+      "menu": 5
     },
     {
       "id": 29,
@@ -259,7 +259,7 @@
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/cashews.jpg",
       "category": "nuts",
       "quantity": 1,
-      "menu": 4
+      "menu": 5
     },
     {
       "id": 30,
@@ -268,6 +268,6 @@
       "image": "https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/walnuts.jpg",
       "category": "nuts",
       "quantity": 1,
-      "menu": 4
+      "menu": 5
     }
 ]

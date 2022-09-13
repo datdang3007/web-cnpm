@@ -4,25 +4,48 @@ const productCard = document.querySelector(".product-card");
 const modalWrapper = document.querySelector(".modal-wrapper")
 
 const cards = document.querySelector(".cards");
-const menu1 = document.querySelector("#menu1")
-const menu2 = document.querySelector("#menu2")
-const menu3 = document.querySelector("#menu3")
-const menu4 = document.querySelector("#menu4")
+const menu1 = document.querySelector("#menu1");
+const menu2 = document.querySelector("#menu2");
+const menu3 = document.querySelector("#menu3");
+const menu4 = document.querySelector("#menu4");
+const menu5 = document.querySelector("#menu5");
 
+menuAll.addEventListener("click", function(e) {
+    removeAndSetClassActive(menuAll)
+    renderCards(productsDB)
+})
 menu1.addEventListener("click", function(e) {
+    removeAndSetClassActive(menu1)
     renderCards(productsDB, 1)
 })
 menu2.addEventListener("click", function(e) {
+    removeAndSetClassActive(menu2)
     renderCards(productsDB, 2)
 })
 menu3.addEventListener("click", function(e) {
+    removeAndSetClassActive(menu3)
     renderCards(productsDB, 3)
 })
 menu4.addEventListener("click", function(e) {
+    removeAndSetClassActive(menu4)
     renderCards(productsDB, 4)
+})
+menu5.addEventListener("click", function(e) {
+    removeAndSetClassActive(menu5)
+    renderCards(productsDB, 5)
 })
 
 renderCards(productsDB)
+
+function removeAndSetClassActive(nameClassActive) {
+    menuAll.classList.remove("active");
+    menu1.classList.remove("active");
+    menu2.classList.remove("active");
+    menu3.classList.remove("active");
+    menu4.classList.remove("active");
+    menu5.classList.remove("active");
+    nameClassActive.classList.add("active");
+}
 
 function renderCards(list, menu) {
     let listString = ""
@@ -30,21 +53,21 @@ function renderCards(list, menu) {
         for (const todo of list) {
             if (todo.menu == menu) {
                 listString += `
-                <div class="card" data-menu="${todo.menu}">
-                    <div class="card-content">
-                        <div class="img">
-                            <img src=${todo.image} alt="">
+                    <div class="card" data-menu="${todo.menu}">
+                        <div class="card-content">
+                            <div class="img">
+                                <img src=${todo.image} alt="">
+                            </div>
+                            <div class="details">
+                                <div class="name-price">
+                                    <span class="name">${todo.name}</span>
+                                    <span class="price">${todo.price}$</span>
+                                </div>
+                                <button><span id="btnAddToCart"><i class="fa-solid fa-cart-shopping"></i></span></button>
+                            </div>
                         </div>
-                        <span class="name-price">${todo.name}: ${todo.price}$</span>
-                        <div class="stepper-input">
-                            <a class="decrement" href="#">–</a>
-                            <input type="number" class="quantity" value="1">
-                            <a class="increment" href="#">+</a>
-                        </div>
-                        <button><span id="btnAddToCart">ADD TO CART</span></button>
                     </div>
-                </div>
-            `
+                `
             }
         }
     } else {
