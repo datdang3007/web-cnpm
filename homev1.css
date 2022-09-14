@@ -7,8 +7,18 @@
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  display: none;
+}
+
 .body-overflow {
   overflow: hidden;
+}
+
+.drop-down-cart {
+  position: relative;
+  z-index: 1000;
+  background-color: #202226;
 }
 
 .form {
@@ -1066,6 +1076,11 @@ header .header-top .portion-upper .container .header-right .user i {
     opacity: 1;
     visibility: visible;
   }
+}
+
+.drop-down-cart {
+  height: 10vh;
+  width: 280px;
 }
 
 .action-scroll {

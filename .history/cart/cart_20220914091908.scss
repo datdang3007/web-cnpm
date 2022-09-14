@@ -1,0 +1,29 @@
+.drop-down-cart {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  .wrapper-drop-dwon-cart {
+    box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+    background-color: #fff;
+    width: 400px;
+    height: 100vh;
+    position: fixed;
+    padding: 30px;
+    .header-cart {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #222;
+      border-bottom: 0.5px solid #666;
+      .name-cart {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .btn-close-cart {
+        font-size: 14px;
+        color: #666;
+      }
+    }
+  }
+}

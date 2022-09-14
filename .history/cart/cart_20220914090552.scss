@@ -1,0 +1,11 @@
+.drop-down-cart {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  .wrapper-drop-down-cart {
+    background-color: #202226;
+    width: 280px;
+    height: 100vh;
+  }
+}
