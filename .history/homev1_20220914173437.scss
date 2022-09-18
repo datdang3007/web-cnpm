@@ -1,0 +1,28 @@
+.container {
+  margin: 0 auto;
+  width: 1170px;
+}
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+  display: none;
+}
+$headerTopUP: #ffffff;
+.body-overflow {
+  overflow: hidden;
+}
+.drop-down-cart {
+  position: relative;
+  z-index: 1000;
+  background-color: #202226;
+}
+@import "formLogin";
+@import "header";
+@import "banner";
+@import "cart";
+// @import "product";
+
+@import "scrollTop";
+//muốn element đè lên video thì phải thêm z-index và position vào thằng cha
+//VD:
