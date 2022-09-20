@@ -1,0 +1,127 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+  position: relative;
+}
+.container {
+  margin: 0 auto;
+  width: 1270px;
+}
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  background-color: rgba(#ffffff, 0.8);
+  .header {
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px;
+      .header-right {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        a {
+          img {
+            width: 70px;
+            height: 70px;
+          }
+        }
+        .name-form {
+          color: #666;
+          margin-left: 30px;
+        }
+      }
+      .header-left {
+        a {
+          color: #f0932b;
+        }
+      }
+    }
+  }
+}
+.background-video {
+  video {
+    position: fixed;
+    z-index: -1;
+    width: 100vw;
+    top: 0;
+    height: flex;
+    z-index: 0;
+  }
+}
+.content {
+  position: relative;
+  z-index: 9999;
+  .container {
+    background-color: #ffffff;
+    margin-top: 84px;
+    padding: 40px 0px;
+
+    nav.menu {
+      ul {
+        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        > * {
+          color: black;
+          margin: 0 30px;
+          font-size: 22px;
+          font-weight: 600;
+          &::after {
+            cursor: default;
+            content: ">";
+            position: absolute;
+            top: 50%;
+            left: calc(100% + 20px);
+            transform: translate(-50%, -50%);
+            color: black;
+          }
+        }
+        > :last-child {
+          &::after {
+            display: none;
+          }
+        }
+        li {
+          cursor: pointer;
+          position: relative;
+        }
+        li.active {
+          color: #f0932b;
+        }
+      }
+    }
+
+    .shopping-cart {
+      .left-content {
+        width: 70%;
+        .info-title-cart {
+          display: flex;
+          align-items: center;
+          font-weight: 600;
+          color: #999;
+          .product-title {
+            width: 400px;
+          }
+          .price-title {
+            width: 150px;
+          }
+          .quantity-title {
+            width: 150px;
+          }
+          .subtotal-title {
+            width: 150px;
+          }
+        }
+      }
+      .right-content {
+      }
+    }
+  }
+}

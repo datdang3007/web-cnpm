@@ -329,6 +329,7 @@ header .header .container .header-left a {
 }
 
 .form .backgr .wrapper-form .similer .go-to-register {
+  position: relative;
   width: 100%;
   margin-top: 10px;
   display: -webkit-box;
@@ -341,5 +342,29 @@ header .header .container .header-left a {
       -ms-flex-align: center;
           align-items: center;
   color: #666;
+}
+
+.form .backgr .wrapper-form .similer .go-to-register a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 37.5%;
+  height: 0.5px;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.form .backgr .wrapper-form .similer .go-to-register a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 37.5%;
+  height: 0.5px;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 /*# sourceMappingURL=login.css.map */

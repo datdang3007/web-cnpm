@@ -1,0 +1,17 @@
+header {
+  .portion-upper {
+    padding: 15px 0 !important;
+  }
+  .header-middle {
+    .icon-home {
+      a {
+        width: 150px !important;
+        height: 150px !important;
+        border-radius: 50%;
+        img {
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

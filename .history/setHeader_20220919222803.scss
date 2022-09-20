@@ -1,0 +1,18 @@
+header {
+  .portion-upper {
+    padding: 15px 0 !important;
+  }
+  .header-middle {
+    transform: translate(-50%, 10px);
+    .icon-home {
+      transform: translate(0) !important;
+
+      a {
+        border-radius: 50%;
+        width: 150px !important;
+        height: 150px !important;
+        border-radius: 50%;
+      }
+    }
+  }
+}

@@ -335,6 +335,7 @@ header .header .container .header-left a {
 }
 
 .form .backgr .wrapper-form .similer .go-to-login {
+  position: relative;
   width: 100%;
   margin-top: 20px;
   display: -webkit-box;
@@ -346,6 +347,30 @@ header .header .container .header-left a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.form .backgr .wrapper-form .similer .go-to-login::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 40%;
+  height: 0.5px;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.form .backgr .wrapper-form .similer .go-to-login::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 40%;
+  height: 0.5px;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .form .backgr .wrapper-form .similer .go-to-login a {
