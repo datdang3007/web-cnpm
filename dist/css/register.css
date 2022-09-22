@@ -376,4 +376,72 @@ header .header .container .header-left a {
 .form .backgr .wrapper-form .similer .go-to-login a {
   color: #666;
 }
+
+.form-loading {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 99999;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-loading ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.form-loading ul li {
+  margin: 0 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #f0932b;
+}
+
+.form-loading ul li:nth-child(1) {
+  -webkit-animation: loading 1s alternate ease-out infinite;
+          animation: loading 1s alternate ease-out infinite;
+}
+
+.form-loading ul li:nth-child(2) {
+  -webkit-animation: loading 1s 0.3s alternate ease-out infinite;
+          animation: loading 1s 0.3s alternate ease-out infinite;
+}
+
+.form-loading ul li:nth-child(3) {
+  -webkit-animation: loading 1s 0.6s alternate ease-out infinite;
+          animation: loading 1s 0.6s alternate ease-out infinite;
+}
+
+@-webkit-keyframes loading {
+  from {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  to {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+}
+
+@keyframes loading {
+  from {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  to {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+}
 /*# sourceMappingURL=register.css.map */
