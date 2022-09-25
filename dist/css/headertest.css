@@ -489,6 +489,14 @@ header .header-top .portion-upper .container .header-right .user .dropdown-user 
           animation: loading 1s 0.6s alternate ease-out infinite;
 }
 
+.btn-to-top {
+  cursor: pointer;
+}
+
+.btn-to-top i {
+  cursor: pointer;
+}
+
 @-webkit-keyframes loading {
   from {
     -webkit-transform: translateY(20px);
