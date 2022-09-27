@@ -67,54 +67,6 @@ $(document).ready(function () {
       },
       300
     );
-    $("#menu1").trigger("click");
-  });
-
-  $(".frozen").click(function (e) {
-    e.preventDefault();
-    console.log(productGroup);
-    body.animate(
-      {
-        scrollTop: productGroup,
-      },
-      300
-    );
-    $("#menu2").trigger("click");
-  });
-
-  $(".fruits").click(function (e) {
-    e.preventDefault();
-    console.log(productGroup);
-    body.animate(
-      {
-        scrollTop: productGroup,
-      },
-      300
-    );
-    $("#menu3").trigger("click");
-  });
-
-  $(".organic").click(function (e) {
-    e.preventDefault();
-    console.log(productGroup);
-    body.animate(
-      {
-        scrollTop: productGroup,
-      },
-      300
-    );
-    $("#menu4").trigger("click");
-  });
-
-  $(".vegetables").click(function (e) {
-    e.preventDefault();
-    console.log(productGroup);
-    body.animate(
-      {
-        scrollTop: productGroup,
-      },
-      300
-    );
-    $("#menu5").trigger("click");
+    $(".menu1").trigger("click");
   });
 });

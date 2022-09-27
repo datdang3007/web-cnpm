@@ -40,6 +40,10 @@ header .header-top .portion-upper .container .header-left .wrapper-nav-main .nav
 }
 
 header .header-top .portion-upper .container .header-left .wrapper-nav-main .nav-main .nav-link-main {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   padding: 10px 0;
   font-size: 16px;
   text-transform: uppercase;
