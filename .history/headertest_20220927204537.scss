@@ -148,7 +148,7 @@ header {
               color: #666666;
             }
             .cart-reng {
-              animation: reng 0.2s alternate;
+              animation: reng 0.5s;
             }
             .quantity {
               color: #ffffff;
@@ -367,13 +367,10 @@ header {
   }
 }
 @keyframes reng {
-  0% {
-    transform: rotate(-10deg);
+  from {
+    transform: rotate(-25deg);
   }
-  50% {
-    transform: rotate(10deg);
-  }
-  100% {
-    transform: rotate(0);
+  to {
+    transform: translateY(45deg);
   }
 }

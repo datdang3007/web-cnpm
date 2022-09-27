@@ -2,8 +2,6 @@ const iduser = JSON.parse(localStorage.getItem("user"));
 if (JSON.parse(localStorage.getItem("checkRemember")) === false) {
   localStorage.removeItem("user");
 }
-let checkLoadUser = false;
-let checkLoadPduct = false;
 if (iduser) {
   $("body").prepend(`
       <div class="form-loading">
@@ -17,11 +15,7 @@ if (iduser) {
   fetch(getdataUser)
     .then((data) => data.json())
     .then((result) => {
-      if (checkLoadPduct) {
-        $("body").find(".form-loading").remove();
-      } else {
-        checkLoadUser = true;
-      }
+      $("body").find(".form-loading").remove();
       renderCartsUser(result);
     });
 }
@@ -37,15 +31,7 @@ $("body").prepend(`
 fetch("https://getuser.vercel.app/api/getAllProducts")
   .then((data) => data.json())
   .then((result) => {
-    if (iduser) {
-      if (checkLoadUser) {
-        $("body").find(".form-loading").remove();
-      } else {
-        checkLoadPduct = true;
-      }
-    } else {
-      $("body").find(".form-loading").remove();
-    }
+    $("body").find(".form-loading").remove();
     wrapperProduct(result);
   });
 
@@ -189,7 +175,7 @@ function wrapperProduct(productsDB) {
     productEvent();
   }
 
-  // show detail product when click and add to cart
+  // show detail product when click
   function productEvent() {
     const card = document.querySelectorAll(".card");
     card.forEach((element) => {
@@ -228,9 +214,6 @@ function wrapperProduct(productsDB) {
     $(".btnAddToCart").click(function (e) {
       e.preventDefault();
       $(".cart-icon").addClass("cart-reng");
-      setTimeout(() => {
-        $(".cart-icon").removeClass("cart-reng");
-      }, 300);
       const idClick = $(this).data("id");
       const getValue = productsDB.filter((val) => val._id === idClick);
       const checkInCart = cart.findIndex((val) => val.id === idClick);

@@ -198,6 +198,11 @@ header .header-top .portion-upper .container .header-right .cart .cart-icon {
   color: #666666;
 }
 
+header .header-top .portion-upper .container .header-right .cart .cart-reng {
+  -webkit-animation: reng 0.2s alternate;
+          animation: reng 0.2s alternate;
+}
+
 header .header-top .portion-upper .container .header-right .cart .quantity {
   color: #ffffff;
   position: absolute;
@@ -516,6 +521,36 @@ header .header-top .portion-upper .container .header-right .user .dropdown-user 
   to {
     -webkit-transform: translateY(-20px);
             transform: translateY(-20px);
+  }
+}
+
+@-webkit-keyframes reng {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  50% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+}
+
+@keyframes reng {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  50% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
   }
 }
 /*# sourceMappingURL=headertest.css.map */

@@ -2,8 +2,7 @@ const iduser = JSON.parse(localStorage.getItem("user"));
 if (JSON.parse(localStorage.getItem("checkRemember")) === false) {
   localStorage.removeItem("user");
 }
-let checkLoadUser = false;
-let checkLoadPduct = false;
+let checkLoad = false;
 if (iduser) {
   $("body").prepend(`
       <div class="form-loading">
@@ -17,10 +16,9 @@ if (iduser) {
   fetch(getdataUser)
     .then((data) => data.json())
     .then((result) => {
-      if (checkLoadPduct) {
+      if (checkLoad) {
+        checkLoad = true;
         $("body").find(".form-loading").remove();
-      } else {
-        checkLoadUser = true;
       }
       renderCartsUser(result);
     });
@@ -37,14 +35,12 @@ $("body").prepend(`
 fetch("https://getuser.vercel.app/api/getAllProducts")
   .then((data) => data.json())
   .then((result) => {
-    if (iduser) {
-      if (checkLoadUser) {
-        $("body").find(".form-loading").remove();
-      } else {
-        checkLoadPduct = true;
-      }
+    if (iduser && checkLoad) {
+      checkLoad = true;
+      $("body").find(".form-loading").remove();
     } else {
       $("body").find(".form-loading").remove();
+      checkLoad = true;
     }
     wrapperProduct(result);
   });
