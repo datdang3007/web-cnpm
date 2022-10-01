@@ -1,0 +1,41 @@
+$colorLetter: #666;
+
+.checkout {
+  background-color: #eee;
+  .container {
+    .title-checkout {
+      font-size: 32px;
+      color: $colorLetter;
+    }
+    .checkout-content {
+      background-color: #fafafa;
+      padding: 20px;
+      .datetime-order {
+        padding-bottom: 10px;
+      }
+      .products-and-adress {
+        padding: 10px 0;
+        border-top: rgba($color: #666, $alpha: 0.5) 1px solid;
+        .products {
+          display: flex;
+          align-items: center;
+          img {
+            width: 100px;
+            height: 100px;
+          }
+          .product-content {
+            margin-left: 10px;
+            .name-product {
+              font-size: 16px;
+              font-weight: 700;
+              color: $colorLetter;
+            }
+            .product-total {
+              display: flex;
+            }
+          }
+        }
+      }
+    }
+  }
+}

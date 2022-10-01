@@ -83,6 +83,16 @@ header .header-top .portion-upper .container .header-left .wrapper-nav-main .nav
   font-size: 10px;
 }
 
+header .header-top .portion-upper .container .header-left .wrapper-nav-main .nav-main.active-nav-main .nav-link-main {
+  color: #fff;
+}
+
+header .header-top .portion-upper .container .header-left .wrapper-nav-main .nav-main.active-nav-main .nav-link-main::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+}
+
 header .header-top .portion-upper .container .header-left .wrapper-nav-main .drop-down {
   position: relative;
 }

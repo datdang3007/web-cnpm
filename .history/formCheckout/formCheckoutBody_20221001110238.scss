@@ -1,0 +1,19 @@
+$colorLetter: #666;
+
+.checkout {
+  background-color: #eee;
+  .container {
+    .title-checkout {
+      font-size: 32px;
+      color: $colorLetter;
+    }
+    .checkout-content {
+      background-color: #fff;
+      padding: 20px;
+      .datetime-order {
+        padding: 10px;
+        border-bottom: rgba($color: #666, $alpha: 0.5);
+      }
+    }
+  }
+}

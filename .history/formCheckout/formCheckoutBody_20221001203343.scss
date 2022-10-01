@@ -1,0 +1,90 @@
+$colorLetter: #666;
+
+.checkout {
+  background-color: #eee;
+  .container {
+    .title-checkout {
+      font-size: 32px;
+      color: $colorLetter;
+    }
+    .checkout-content {
+      background-color: #fafafa;
+      padding: 20px;
+      .datetime-order {
+        padding-bottom: 10px;
+      }
+      .checkout-info {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 60% 50%;
+        border-top: rgba($color: #666, $alpha: 0.5) 1px solid;
+        ::-webkit-scrollbar-thumb {
+          background: #666;
+          border-radius: 5px;
+        }
+        ::-webkit-scrollbar {
+          width: 5px;
+        }
+        .products-and-adress {
+          width: 100%;
+          padding: 10px 0;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          max-height: 270px;
+          overflow: auto;
+          .products {
+            max-height: 120px;
+            background-color: #fff;
+            border-radius: 20px;
+            border-bottom-left-radius: 10px;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            &:hover {
+              box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+            }
+            img {
+              width: 120px;
+              height: 120px;
+            }
+            .product-content {
+              margin: 0 0 0 10px;
+              width: 100%;
+              .name-product {
+                font-size: 20px;
+                font-weight: 700;
+                color: $colorLetter;
+              }
+              .product-type {
+                margin-top: 5px;
+                display: flex;
+                .quantity {
+                  margin-right: 10px;
+                  font-size: 16px;
+                  color: $colorLetter;
+                }
+                .category {
+                  color: $colorLetter;
+                }
+              }
+
+              .price {
+                margin-top: 5px;
+                font-size: 16px;
+                font-weight: 700;
+              }
+            }
+          }
+        }
+        .address {
+          padding: 20px;
+          .delivery-address {
+            font-weight: 300;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}

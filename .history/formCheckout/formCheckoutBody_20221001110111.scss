@@ -1,0 +1,17 @@
+$colorLetter: #666;
+
+.checkout {
+  background-color: #eee;
+  .container {
+    .title-checkout {
+      font-size: 32px;
+      color: $colorLetter;
+    }
+    .checkout-content {
+      background-color: #fff;
+      padding: 20px;
+      .datetime-order {
+      }
+    }
+  }
+}
