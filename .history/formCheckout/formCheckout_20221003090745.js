@@ -33,6 +33,7 @@ function renderCartsBill(carts) {
 let billCarts = [];
 function renderBills(Bills) {
   const billsUser = Bills.filter((val) => val.userid === userid);
+  console.log("billsUser:", billsUser);
   if (billsUser.length > 0) {
     billsUser.forEach((val, index) => {
       $(".wrapper-checkout").append(`
@@ -62,12 +63,8 @@ function renderBills(Bills) {
     renderCartsBill(billCarts);
   } else {
     console.log("con cac");
-    $(".wrapper-checkout").html(`
-      <div class="wrapper-bill-empty"> 
-      <img class="bill-empty" src="../icon/empty-cart.png" alt="">
-      <h2>Your bill is empty</h2>
-      </div>
-      `);
+    $(".wrapper-checkout").html(`<img src="../icon/empty-cart.png" alt="">
+      <h2>Your Bills is empty</h2>`);
   }
 }
 

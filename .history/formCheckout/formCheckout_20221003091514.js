@@ -33,6 +33,7 @@ function renderCartsBill(carts) {
 let billCarts = [];
 function renderBills(Bills) {
   const billsUser = Bills.filter((val) => val.userid === userid);
+  console.log("billsUser:", billsUser);
   if (billsUser.length > 0) {
     billsUser.forEach((val, index) => {
       $(".wrapper-checkout").append(`

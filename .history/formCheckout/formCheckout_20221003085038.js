@@ -6,7 +6,8 @@ $("body").prepend(`
           <li></li>
       </ul>
       </div>`);
-const userid = JSON.parse(localStorage.getItem("userBills"));
+const userid = JSON.parse(localStorage.getItem("userBIlls"));
+console.log("userid:", userid);
 function renderCartsBill(carts) {
   carts.forEach((val, index) => {
     val.forEach((vals) => {
@@ -33,7 +34,7 @@ function renderCartsBill(carts) {
 let billCarts = [];
 function renderBills(Bills) {
   const billsUser = Bills.filter((val) => val.userid === userid);
-  if (billsUser.length > 0) {
+  if (billsUser) {
     billsUser.forEach((val, index) => {
       $(".wrapper-checkout").append(`
               <div class="checkout-content">
@@ -60,14 +61,6 @@ function renderBills(Bills) {
       billCarts.push(val.carts);
     });
     renderCartsBill(billCarts);
-  } else {
-    console.log("con cac");
-    $(".wrapper-checkout").html(`
-      <div class="wrapper-bill-empty"> 
-      <img class="bill-empty" src="../icon/empty-cart.png" alt="">
-      <h2>Your bill is empty</h2>
-      </div>
-      `);
   }
 }
 

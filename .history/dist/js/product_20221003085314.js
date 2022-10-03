@@ -96,7 +96,6 @@ function renderCartsUser(result) {
    <li><a class="logout" href="./register/register.html">Longout</a></li>
   `);
   $(".get-purchase-order").click(function (e) {
-    e.preventDefault();
     localStorage.setItem("userBills", JSON.stringify(iduser));
     window.location.replace("../formCheckout/formCheckout.html");
   });

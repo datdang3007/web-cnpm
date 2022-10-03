@@ -1,7 +1,4 @@
 const iduser = JSON.parse(localStorage.getItem("user"));
-
-localStorage.removeItem("userid");
-localStorage.removeItem("userBills");
 const cart = [];
 let totalCart = 0;
 if (JSON.parse(localStorage.getItem("checkRemember")) === false) {
@@ -92,13 +89,12 @@ function renderCartsUser(result) {
 
   $(".action-user").html(`
    <li><a class="get-your-profile" href="./profile/profile.html">Your profile</a></li>
-   <li><a class="get-purchase-order" href="">Purchase order</a></li>
+   <li><a class="get-purchase-order" href="#">Purchase order</a></li>
    <li><a class="logout" href="./register/register.html">Longout</a></li>
   `);
   $(".get-purchase-order").click(function (e) {
-    e.preventDefault();
-    localStorage.setItem("userBills", JSON.stringify(iduser));
-    window.location.replace("../formCheckout/formCheckout.html");
+    console.log("concac");
+    localStorage.setItem("user", JSON.stringify(iduser));
   });
   $(".logout").click(function (e) {
     e.preventDefault();
