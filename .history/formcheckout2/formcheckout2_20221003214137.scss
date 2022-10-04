@@ -1,0 +1,28 @@
+.margin-header {
+  background-color: #fff;
+}
+.checkout {
+  background-color: #fff;
+  .container {
+    h1 {
+      font-size: 50px;
+    }
+    .title-checkout {
+      margin: 20px 0;
+      color: #222;
+    }
+    .form-checkout {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 60% 40%;
+      .user-checkout {
+        .inpurt-group {
+          label {
+            font-size: 16px;
+            color: #222;
+          }
+        }
+      }
+    }
+  }
+}

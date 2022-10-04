@@ -1,0 +1,45 @@
+.margin-header {
+  background-color: #fff;
+}
+.checkout {
+  background-color: #fff;
+  .container {
+    h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+    .form-checkout {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 60% 40%;
+      .user-checkout {
+        padding-right: 30px;
+        .title-checkout {
+          margin: 20px 0;
+          color: #222;
+        }
+        .input-group {
+          margin-bottom: 30px;
+          label {
+            font-size: 16px;
+            color: #222;
+          }
+          input,
+          select {
+            height: 40px;
+            width: 100%;
+            border: 1px solid rgba(#666, 0.3);
+            font-size: 16px;
+            display: block;
+            padding: 20px 15px;
+            border-radius: 2px;
+            outline: none;
+            option {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
