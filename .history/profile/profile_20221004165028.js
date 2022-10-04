@@ -113,8 +113,8 @@ $(document).ready(function () {
               checkNameUser === -1
             ) {
               const updateUser = {
-                email: getEmail,
-                name: getUsername,
+                email: getEmail.val(),
+                name: getUsername.val(),
               };
               $("body").prepend(`
                 <div class="form-loading">
