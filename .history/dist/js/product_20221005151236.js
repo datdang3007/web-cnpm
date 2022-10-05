@@ -162,23 +162,23 @@ function wrapperProduct(productsDB) {
   });
   menu1.addEventListener("click", function (e) {
     removeAndSetClassActive(menu1);
-    renderCards(productsDB, "dried");
+    renderCards(productsDB, "vegetables");
   });
   menu2.addEventListener("click", function (e) {
     removeAndSetClassActive(menu2);
-    renderCards(productsDB, "frozen");
+    renderCards(productsDB, 2);
   });
   menu3.addEventListener("click", function (e) {
     removeAndSetClassActive(menu3);
-    renderCards(productsDB, "fruits");
+    renderCards(productsDB, 3);
   });
   menu4.addEventListener("click", function (e) {
     removeAndSetClassActive(menu4);
-    renderCards(productsDB, "organic");
+    renderCards(productsDB, 4);
   });
   menu5.addEventListener("click", function (e) {
     removeAndSetClassActive(menu5);
-    renderCards(productsDB, "vegetables");
+    renderCards(productsDB, 5);
   });
 
   renderCards(productsDB);
@@ -196,13 +196,13 @@ function wrapperProduct(productsDB) {
   }
 
   // get database product and render
-  function renderCards(list, category) {
+  function renderCards(list, menu) {
     let listString = "";
-    if (category) {
+    if (menu) {
       for (const todo of list) {
-        if (todo.category === category) {
+        if (todo.category == menu) {
           listString += `
-                    <div class="card" data-category="${todo.category}">
+                    <div class="card" data-menu="${todo.menu}">
                         <div class="card-content">
                             <div class="img">
                                 <img src=${todo.image} data-id="${todo.id}"  alt="">
@@ -222,7 +222,7 @@ function wrapperProduct(productsDB) {
     } else {
       for (const todo of list) {
         listString += `
-                <div class="card" data-category="${todo.category}">
+                <div class="card" data-menu="${todo.menu}">
                     <div class="card-content">
                         <div class="img">
                             <img src=${todo.image} data-id="${todo._id}" alt="">

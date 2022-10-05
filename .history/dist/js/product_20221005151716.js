@@ -162,19 +162,19 @@ function wrapperProduct(productsDB) {
   });
   menu1.addEventListener("click", function (e) {
     removeAndSetClassActive(menu1);
-    renderCards(productsDB, "dried");
+    renderCards(productsDB, 1);
   });
   menu2.addEventListener("click", function (e) {
     removeAndSetClassActive(menu2);
-    renderCards(productsDB, "frozen");
+    renderCards(productsDB, 2);
   });
   menu3.addEventListener("click", function (e) {
     removeAndSetClassActive(menu3);
-    renderCards(productsDB, "fruits");
+    renderCards(productsDB, 3);
   });
   menu4.addEventListener("click", function (e) {
     removeAndSetClassActive(menu4);
-    renderCards(productsDB, "organic");
+    renderCards(productsDB, 4);
   });
   menu5.addEventListener("click", function (e) {
     removeAndSetClassActive(menu5);
@@ -222,7 +222,7 @@ function wrapperProduct(productsDB) {
     } else {
       for (const todo of list) {
         listString += `
-                <div class="card" data-category="${todo.category}">
+                <div class="card" data-menu="${todo.menu}">
                     <div class="card-content">
                         <div class="img">
                             <img src=${todo.image} data-id="${todo._id}" alt="">
