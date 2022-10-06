@@ -101,7 +101,7 @@ function renderCartsUser(result) {
   $(".get-purchase-order").click(function (e) {
     e.preventDefault();
     localStorage.setItem("userBills", JSON.stringify(iduser));
-    window.location.href = "../formCheckout/formCheckout.html";
+    window.location.replace("../formCheckout/formCheckout.html");
   });
   $(".logout").click(function (e) {
     e.preventDefault();
