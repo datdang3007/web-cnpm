@@ -51,6 +51,15 @@ function renerPdoructs() {
         </div>
   `);
 
+  function handleSearch(result) {
+    const input = document.querySelector(".form-search input");
+    input.oninput = function (e) {
+      const containProducts = result.filter((val) =>
+        val.name.lowerCase().includes(e.target.value.lowerCase())
+      );
+      console.log(containProducts);
+    };
+  }
   fetch("https://getuser.vercel.app/api/getAllProducts")
     .then((data) => data.json())
     .then((result) => {
@@ -67,6 +76,7 @@ function renerPdoructs() {
         $("body").find(".form-loading").remove();
       }
       wrapperProduct(result);
+      handleSearch(result);
     })
     .catch((err) => {
       alert("Something was wrong", err);
@@ -181,13 +191,7 @@ function wrapperProduct(productsDB) {
 
   renderCards(productsDB);
   cartEvent();
-  const input = document.querySelector(".form-search input");
-  input.oninput = function (e) {
-    const containProducts = productsDB.filter((val) =>
-      val.name.toLowerCase().includes(e.target.value.toLowerCase())
-    );
-    renderCards(containProducts);
-  };
+
   //get menu vegetables or fruits
   function removeAndSetClassActive(nameClassActive) {
     menuAll.classList.remove("active");
