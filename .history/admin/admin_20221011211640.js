@@ -21,7 +21,7 @@ if (checkAdmin) {
                 </ul>
             </div>
         `);
-  // localStorage.removeItem("admin");
+  localStorage.removeItem("admin");
   fetch(`https://getuser.vercel.app/api/getAAdmin/${checkAdmin}`)
     .then((data) => data.json())
     .then((result) => {
@@ -344,11 +344,11 @@ function handleAdminProducts() {
                             <div class="group-input">
                                 <label for="name">Category:</label>
                                 <select name="" id="categories">
-                                    <option value="vegetables">vegetables</option>
-                                    <option value="fruit">fruit</option>
-                                    <option value="dried">dried</option>
-                                    <option value="frozen">frozen</option>
-                                    <option value="organic">organic</option>
+                                    <option value="">vegetables</option>
+                                    <option value="">fruit</option>
+                                    <option value="">dried</option>
+                                    <option value="">frozen</option>
+                                    <option value="">organic</option>
                                 </select>
                             </div>
                         </form>
@@ -375,8 +375,8 @@ function handleAdminProducts() {
         $("#name").val(data.name);
         $("#price").val(data.price);
         $("#url").val(data.image);
+        $("#categories ").text(data.category);
 
-        document.querySelector("#categories").value = data.category;
         $("#btnCancel").click((e) => {
           $(".admin-input").fadeOut(400);
         });

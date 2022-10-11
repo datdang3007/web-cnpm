@@ -21,7 +21,7 @@ if (checkAdmin) {
                 </ul>
             </div>
         `);
-  // localStorage.removeItem("admin");
+  localStorage.removeItem("admin");
   fetch(`https://getuser.vercel.app/api/getAAdmin/${checkAdmin}`)
     .then((data) => data.json())
     .then((result) => {
@@ -103,12 +103,9 @@ function handleAdminProducts() {
           } else if (testing(getUsername)) {
             $("body").find(".form-loading").remove();
             alert("Username must not have spaces or special characters");
-          } else if (getUsername.length > 25) {
+          } else if (getUsername.length > 25 && getUsername.length < 4) {
             $("body").find(".form-loading").remove();
-            alert("Username must be less than 25 characters");
-          } else if (getUsername.length < 4) {
-            $("body").find(".form-loading").remove();
-            alert("Username must be at least 4 characters");
+            alert("Username must be less than 25 and at least 4 characters");
           } else {
             const checkNameUser = result.findIndex(
               (val) => val.name === getUsername && val._id !== checkAdmin
@@ -234,12 +231,12 @@ function handleAdminProducts() {
           } else if (comfirmPassword !== newPassword) {
             $("body").find(".form-loading").remove();
             alert("The Password is different from the Confirm!");
-          } else if (comfirmPassword.length > 30) {
+          } else if (
+            comfirmPassword.length > 30 &&
+            comfirmPassword.length < 4
+          ) {
             $("body").find(".form-loading").remove();
-            alert("Password must be less than 30 haracters");
-          } else if (comfirmPassword.length < 4) {
-            $("body").find(".form-loading").remove();
-            alert("Password must be at least 4 characters");
+            alert("Password must be less than 30 and at least 4 characters");
           } else {
             $.ajax({
               type: "PUT",
@@ -250,7 +247,6 @@ function handleAdminProducts() {
               success: function () {
                 alert("changed success");
                 $("body").find(".form-loading").remove();
-                location.reload();
               },
               error: function () {
                 alert("Something was wrong");
@@ -344,11 +340,11 @@ function handleAdminProducts() {
                             <div class="group-input">
                                 <label for="name">Category:</label>
                                 <select name="" id="categories">
-                                    <option value="vegetables">vegetables</option>
-                                    <option value="fruit">fruit</option>
-                                    <option value="dried">dried</option>
-                                    <option value="frozen">frozen</option>
-                                    <option value="organic">organic</option>
+                                    <option value="">vegetables</option>
+                                    <option value="">fruit</option>
+                                    <option value="">dried</option>
+                                    <option value="">frozen</option>
+                                    <option value="">organic</option>
                                 </select>
                             </div>
                         </form>
@@ -375,8 +371,8 @@ function handleAdminProducts() {
         $("#name").val(data.name);
         $("#price").val(data.price);
         $("#url").val(data.image);
+        $("#categories option:selected").text(data.category);
 
-        document.querySelector("#categories").value = data.category;
         $("#btnCancel").click((e) => {
           $(".admin-input").fadeOut(400);
         });

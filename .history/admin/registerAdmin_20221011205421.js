@@ -88,7 +88,7 @@ $(document).ready(function () {
             checkLengthName = false;
           } else if (dataUser.name.length < 4) {
             $("body").find(".form-loading").remove();
-            alert("Name must be at least 4 characters");
+            alert("Password must be at least 4 characters");
             checkLengthName = false;
           } else if (dataUser.password.length > 30) {
             $("body").find(".form-loading").remove();

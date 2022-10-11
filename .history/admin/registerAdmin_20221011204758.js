@@ -82,21 +82,14 @@ $(document).ready(function () {
               "Username and password must not have spaces or special characters"
             );
             checkSpecial = false;
-          } else if (dataUser.name.length > 25) {
+          } else if (dataUser.name.length > 25 && dataUser.name.length < 4) {
             $("body").find(".form-loading").remove();
-            alert("Name must be less than 25 characters");
+            alert("Name must be less than 25 and least 4 characters");
             checkLengthName = false;
-          } else if (dataUser.name.length < 4) {
-            $("body").find(".form-loading").remove();
-            alert("Name must be at least 4 characters");
-            checkLengthName = false;
-          } else if (dataUser.password.length > 30) {
-            $("body").find(".form-loading").remove();
-            alert("Password must be less than 30 characters");
-            checkLengthPass = false;
           } else if (dataUser.password.length < 4) {
+            console.log(dataUser.password.length < 4);
             $("body").find(".form-loading").remove();
-            alert("Password must be at least 4 characters");
+            alert("Password must be less than 30 and least 4 characters");
             checkLengthPass = false;
           } else if (dataUser.password !== $(".register-pass").val()) {
             $("body").find(".form-loading").remove();
