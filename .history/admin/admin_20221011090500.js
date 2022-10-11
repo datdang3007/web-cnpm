@@ -1,0 +1,522 @@
+var ProductsDB;
+
+// #### MENU ####
+
+const checkAdmin = JSON.parse(localStorage.getItem("admin"));
+if (!checkAdmin) {
+  localStorage.removeItem("admin");
+  $("body").prepend(`
+            <div class="form-loading">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        `);
+  fetch(`https://getuser.vercel.app/api/getAAdmin/${checkAdmin}`)
+    .then((data) => data.json())
+    .then((result) => {
+      console.log(result);
+      $("body").find(".form-loading").remove();
+      handleAdmin(result);
+      handleAdminProducts();
+    });
+} else {
+  window.location.replace("../loginadmin/loginadmin.html");
+}
+
+function handleAdmin(result) {
+  $(".user-name").append(`${result.name}`).css({
+    color: "#fafafa",
+    "font-size": "14px",
+    "margin-top": "15px",
+  });
+
+  if (result.permission) {
+    $(".action-dropdown-add").html(`
+            <li><a class="add-new-product" href="#">Add new product</a></li>
+            <li><a class="add-new-admin" href="#">Add new admin</a></li>
+        `);
+  } else {
+    $(".action-dropdown-add").html(
+      `<li><a class="add-new-product" href="#">Add new product</a></li>`
+    );
+  }
+
+  $(".add-new-admin").click(function (e) {
+    console.log("hello");
+  });
+}
+
+function handleAdminProducts() {
+  const menus = document.querySelectorAll("#menu");
+  menus.forEach((menu) => {
+    $(menu).click((e) => {
+      SetMenuActive(menu);
+      RenderCards(ProductsDB, $(menu).data().category);
+    });
+  });
+
+  // Add class active when click to the menu:
+  SetMenuActive = (menuActive) => {
+    menus.forEach((menu) => {
+      $(menu).removeClass("active");
+    });
+    $(menuActive).addClass("active");
+  };
+
+  // #### PRODUCTS ####
+
+  // Set data for ProductsDB:
+  SetProductsDB = (DB) => {
+    ProductsDB = DB;
+  };
+
+  // Render cards from database:
+  RenderCards = (data, category) => {
+    var base = ``;
+    if (category != "all") {
+      data.map((val) => {
+        if (val.category == category) {
+          base =
+            base +
+            `
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="img">
+                                <div class="details">
+                                    <span id="nameAndPrice">${val.name}<br>$${val.price}</span>
+                                </div>
+                                <img src=${val.image} alt="">
+                            </div>
+                            <div class="group-button">
+                                <button id="buttonEdit" data-id="${val._id}">Edit</button>
+                                <button id="buttonDelete" data-id="${val._id}">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+        }
+      });
+    } else if (category == "all") {
+      data.map((val) => {
+        base =
+          base +
+          `
+                <div class="card">
+                    <div class="card-content">
+                        <div class="img">
+                            <div class="details">
+                                <span id="nameAndPrice">${val.name}<br>$${val.price}</span>
+                            </div>
+                            <img src=${val.image} alt="">
+                        </div>
+                        <div class="group-button">
+                            <button id="buttonEdit" data-id="${val._id}">Edit</button>
+                            <button id="buttonDelete" data-id="${val._id}">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+      });
+    }
+    $(".cards").html(base);
+    SetBtnEvent();
+  };
+
+  // Set event for btnEdit & btnDelete:
+  SetBtnEvent = () => {
+    // Button Edit:
+    const btnEdits = document.querySelectorAll("#buttonEdit");
+    btnEdits.forEach((btn) => {
+      $(btn).click((e) => {
+        e.preventDefault();
+        const data = GetDataFromId($(btn).data().id);
+        $(".admin-input").html(`
+                <div class="box-edit">
+                    <div class="left-content">
+                        <span id="title">Edit Product</span>
+                        <form action="">
+                            <div class="group-input">
+                                <label for="name">Name:</label>
+                                <input type="text" name="" id="name">
+                            </div>
+                            <div class="group-input">
+                                <label for="price">Price:</label>
+                                <input type="text" name="" id="price">
+                            </div>
+                            <div class="group-input">
+                                <label for="url">Image URL:</label>
+                                <input type="text" name="" id="url">
+                            </div>
+                            <div class="group-input">
+                                <label for="name">Category:</label>
+                                <select name="" id="categories">
+                                    <option value="">vegetables</option>
+                                    <option value="">fruit</option>
+                                    <option value="">dried</option>
+                                    <option value="">frozen</option>
+                                    <option value="">organic</option>
+                                </select>
+                            </div>
+                        </form>
+                        <div class="group-button">
+                            <button id="btnCancel">Cancel</button>
+                            <button id="btnApply">Apply</button>
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="img">
+                                    <div class="details">
+                                        <span id="nameAndPrice">${data.name}<br>$${data.price}<br>${data.category}</span>
+                                    </div>
+                                    <img src=${data.image} alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <button id="btnComplete" data-name="${data.name}" data-price="${data.price}" data-url="${data.image}" data-category="${data.category}">Complete</button>
+                    </div>
+                </div>
+            `);
+        $("#name").val(data.name);
+        $("#price").val(data.price);
+        $("#url").val(data.image);
+        $("#categories option:selected").text(data.category);
+
+        $("#btnCancel").click((e) => {
+          $(".admin-input").fadeOut(400);
+        });
+
+        $("#btnApply").click((e) => {
+          $(".right-content").html(`
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="img">
+                                <div class="details">
+                                    <span id="nameAndPrice">${$(
+                                      "#name"
+                                    ).val()}<br>$${$("#price").val()}<br>${$(
+            "#categories option:selected"
+          ).text()}</span>
+                                </div>
+                                <img src=${$("#url").val()} alt="undefined!!!">
+                            </div>
+                        </div>
+                    </div>
+                    <button id="btnComplete" data-name="${$(
+                      "#name"
+                    ).val()}" data-price="${$("#price").val()}" data-url="${$(
+            "#url"
+          ).val()}" data-category="${$(
+            "#categories option:selected"
+          ).text()}">Complete</button>
+                `);
+          $("#btnComplete").click((e) => {
+            $(".admin-input").fadeOut(400);
+            const idComplete = $(btn).data().id;
+            const newProduct = {
+              name: $("#btnComplete").data().name,
+              price: $("#btnComplete").data().price,
+              img: $("#btnComplete").data().url,
+              category: $("#btnComplete").data().category,
+            };
+            $.ajax({
+              type: "PUT",
+              url: `https://getuser.vercel.app/api/updateProduct/${idComplete}`,
+              data: JSON.stringify(newProduct),
+              contentType: "application/json",
+              dataType: "json",
+              success: function (response) {
+                GetProductsFromAPI();
+                fetch("https://getuser.vercel.app/api/getAllUser")
+                  .then((data) => data.json())
+                  .then((result) => {
+                    result.forEach((val) => {
+                      val.carts.forEach((valCart) => {
+                        if (idComplete === valCart.id) {
+                          const cartUser = {
+                            carts: val.carts.filter(
+                              (val) => val.id !== idComplete
+                            ),
+                          };
+                          $.ajax({
+                            type: "PUT",
+                            url: `https://getuser.vercel.app/api/updateUser/${val._id}`,
+                            data: JSON.stringify(cartUser),
+                            contentType: "application/json",
+                            dataType: "json",
+                          });
+                        }
+                      });
+                    });
+                  });
+              },
+              error: function (response) {
+                alert("khong tim thay product", response);
+              },
+            });
+          });
+        });
+
+        $("#btnComplete").click((e) => {
+          $(".admin-input").fadeOut(400);
+          const idComplete = $(btn).data().id;
+          const newProduct = {
+            name: $("#btnComplete").data().name,
+            price: $("#btnComplete").data().price,
+            img: $("#btnComplete").data().url,
+            category: $("#btnComplete").data().category,
+          };
+          $.ajax({
+            type: "PUT",
+            url: `https://getuser.vercel.app/api/updateProduct/${idComplete}`,
+            data: JSON.stringify(newProduct),
+            contentType: "application/json",
+            dataType: "json",
+            success: function (response) {
+              GetProductsFromAPI();
+              fetch("https://getuser.vercel.app/api/getAllUser")
+                .then((data) => data.json())
+                .then((result) => {
+                  result.forEach((val) => {
+                    val.carts.forEach((valCart) => {
+                      if (idComplete === valCart.id) {
+                        const cartUser = {
+                          carts: val.carts.filter(
+                            (val) => val.id !== idComplete
+                          ),
+                        };
+                        $.ajax({
+                          type: "PUT",
+                          url: `https://getuser.vercel.app/api/updateUser/${val._id}`,
+                          data: JSON.stringify(cartUser),
+                          contentType: "application/json",
+                          dataType: "json",
+                        });
+                      }
+                    });
+                  });
+                });
+            },
+            error: function (response) {
+              alert("khong tim thay product", response);
+            },
+          });
+        });
+        $(".admin-input").fadeIn(400);
+      });
+    });
+
+    // Button Delete:
+    const btnDelete = document.querySelectorAll("#buttonDelete");
+    btnDelete.forEach((btn) => {
+      $(btn).click((e) => {
+        e.preventDefault();
+        if (confirm("confirm to delete this product!")) {
+          const idProductDelete = $(btn).data().id;
+          $.ajax({
+            type: "DELETE",
+            url: `https://getuser.vercel.app/api/deleteProduct/${idProductDelete}`,
+            contentType: "application/json",
+            dataType: "json",
+            success: function (response) {
+              GetProductsFromAPI();
+              fetch("https://getuser.vercel.app/api/getAllUser")
+                .then((data) => data.json())
+                .then((result) => {
+                  result.forEach((val) => {
+                    val.carts.forEach((valCart) => {
+                      if (idProductDelete === valCart.id) {
+                        const cartUser = {
+                          carts: val.carts.filter(
+                            (val) => val.id !== idProductDelete
+                          ),
+                        };
+                        $.ajax({
+                          type: "PUT",
+                          url: `https://getuser.vercel.app/api/updateUser/${val._id}`,
+                          data: JSON.stringify(cartUser),
+                          contentType: "application/json",
+                          dataType: "json",
+                        });
+                      }
+                    });
+                  });
+                });
+            },
+            error: function (response) {
+              alert("khong tim thay product", response);
+            },
+          });
+        }
+      });
+    });
+  };
+
+  // Get data from _id in Database:
+  GetDataFromId = (id) => {
+    var result;
+    ProductsDB.map((val) => {
+      if (val._id == id) {
+        result = val;
+      }
+    });
+    return result;
+  };
+
+  // API:
+  GetProductsFromAPI = () => {
+    $("body").prepend(`
+        <div class="form-loading">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    `);
+    fetch("https://getuser.vercel.app/api/getAllProducts")
+      .then((data) => data.json())
+      .then((result) => {
+        RenderCards(result, "all");
+        SetProductsDB(result);
+        $("body").find(".form-loading").remove();
+      })
+      .catch((err) => {
+        alert("Something was wrong", err);
+      });
+  };
+
+  GetProductsFromAPI();
+
+  $(".add-new-product").click((e) => {
+    e.preventDefault();
+    $(".admin-input").html(`
+        <div class="box-edit">
+            <div class="left-content">
+                <span id="title">Add New Product</span>
+                <form action="">
+                    <div class="group-input">
+                        <label for="name">Name:</label>
+                        <input type="text" name="" id="name">
+                    </div>
+                    <div class="group-input">
+                        <label for="price">Price:</label>
+                        <input type="text" name="" id="price">
+                    </div>
+                    <div class="group-input">
+                        <label for="url">Image URL:</label>
+                        <input type="text" name="" id="url">
+                    </div>
+                    <div class="group-input">
+                        <label for="name">Category:</label>
+                        <select name="" id="categories">
+                            <option value="">vegetables</option>
+                            <option value="">fruit</option>
+                            <option value="">dried</option>
+                            <option value="">frozen</option>
+                            <option value="">organic</option>
+                        </select>
+                    </div>
+                </form>
+                <div class="group-button">
+                    <button id="btnCancel">Cancel</button>
+                    <button id="btnApply">Apply</button>
+                </div>
+            </div>
+            <div class="right-content">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="img">
+                            <div class="details">
+                                <span id="nameAndPrice">name<br>$price<br>vegetables</span>
+                            </div>
+                            <img src="/icon/unknowimg.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <!-- <button id="btnComplete" data-name="none" data-price="none" data-url="none" data-category="none">Complete</button> -->
+                <button id="btnComplete">Complete</button>
+            </div>
+        </div>
+    `);
+
+    $("#btnCancel").click((e) => {
+      $(".admin-input").fadeOut(400);
+    });
+
+    $("#btnApply").click((e) => {
+      if (
+        $("#name").val() != "" &&
+        $("#price").val() != "" &&
+        $("#url").val() != ""
+      ) {
+        $(".right-content").html(`
+                <div class="card">
+                    <div class="card-content">
+                        <div class="img">
+                            <div class="details">
+                                <span id="nameAndPrice">${$(
+                                  "#name"
+                                ).val()}<br>$${$("#price").val()}<br>${$(
+          "#categories option:selected"
+        ).text()}</span>
+                            </div>
+                            <img src=${$("#url").val()} alt="undefined!!!">
+                        </div>
+                    </div>
+                </div>
+                <button id="btnComplete" data-name="${$(
+                  "#name"
+                ).val()}" data-price="${$("#price").val()}" data-url="${$(
+          "#url"
+        ).val()}" data-category="${$(
+          "#categories option:selected"
+        ).text()}">Complete</button>
+            `);
+
+        $("#btnComplete").click((e) => {
+          $(".admin-input").fadeOut(400);
+          const newProduct = {
+            name: $("#btnComplete").data().name,
+            price: $("#btnComplete").data().price,
+            image: $("#btnComplete").data().url,
+            category: $("#btnComplete").data().category,
+          };
+
+          $.ajax({
+            type: "POST",
+            url: `https://getuser.vercel.app/api/AddProduct`,
+            data: JSON.stringify(newProduct),
+            contentType: "application/json",
+            dataType: "json",
+            success: function (response) {
+              GetProductsFromAPI();
+            },
+            error: function (response) {
+              alert("can't post", response);
+            },
+          });
+        });
+      } else {
+        alert("invalid values!!!");
+      }
+    });
+
+    $("#btnComplete").click((e) => {
+      alert("can't complete (ERROR: invalid values)");
+    });
+
+    $(".admin-input").fadeIn(400);
+  });
+}
+// #### ADMINS ####
+
+// router.post("/AdminRegister", AdminRegister);
+// router.get("/getAllAdmin", getAllAdmin);
+// router.put("/updateAdmin/:id", updateAdmin);
+// router.get("/getAAdmin/:id", getAAdmin);
+// router.delete("/deleteAdmin/:id", deleteAdmin);

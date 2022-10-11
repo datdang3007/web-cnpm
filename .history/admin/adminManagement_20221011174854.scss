@@ -1,0 +1,18 @@
+.handle-admin {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 999;
+  background-color: rgba($color: #222, $alpha: 0.6);
+  .wrapper-admin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1000px;
+    height: 500px;
+    background-color: #fff;
+  }
+}

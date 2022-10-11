@@ -1,0 +1,11 @@
+.handle-admin {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 999;
+  background-color: rgba($color: #222, $alpha: 0.6);
+  .wrapper-admin {
+  }
+}
